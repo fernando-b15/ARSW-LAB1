@@ -1,17 +1,39 @@
 package edu.eci.arsw.math;
 
+import java.util.ArrayList;
+
 ///  <summary>
 ///  An implementation of the Bailey-Borwein-Plouffe formula for calculating hexadecimal
 ///  digits of pi.
 ///  https://en.wikipedia.org/wiki/Bailey%E2%80%93Borwein%E2%80%93Plouffe_formula
 ///  *** Translated from C# code: https://github.com/mmoroney/DigitsOfPi ***
 ///  </summary>
-public class PiDigits {
+public class PiDigits{
 
     private static int DigitsPerSum = 8;
     private static double Epsilon = 1e-17;
 
-    
+
+    public static byte[] getDigits(int start, int count, int n){
+        byte[] digits = new byte[count];
+        int intervalo = count/n;
+        int newIndice = start;
+        PiDigitsFactory[] threads = new PiDigitsFactory[n];
+        int i = 0;
+        while(newIndice+intervalo<=count){
+            threads[i] = new PiDigitsFactory(newIndice,intervalo,digits);
+            i++;
+            newIndice+=intervalo;
+        }
+        for(PiDigitsFactory hilo:threads){
+
+        }
+        return digits;
+
+
+
+
+    }
     /**
      * Returns a range of hexadecimal digits of pi.
      * @param start The starting location of the range.
