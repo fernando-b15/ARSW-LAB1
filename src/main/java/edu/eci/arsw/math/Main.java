@@ -14,7 +14,9 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String a[]) {
-        System.out.println(bytesToHex(PiDigits.getDigits(0, 10)));
+
+        System.out.println(bytesToHex(PiDigits.getDigits(0, 100000,50)));
+        System.out.println(bytesToHex(PiDigits.getDigits(0, 100000)));
         System.out.println(bytesToHex(PiDigits.getDigits(1, 10)));
         System.out.println(bytesToHex(PiDigits.getDigits(2, 10)));
     }

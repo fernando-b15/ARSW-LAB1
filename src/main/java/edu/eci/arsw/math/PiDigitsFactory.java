@@ -14,14 +14,10 @@ public class PiDigitsFactory extends Thread {
     }
     @Override
     public void run(){
-        PiDigits generaDigitos = new PiDigits();
-        byte[] digitosGenerados = generaDigitos.getDigits(digitoInicial,numeroDigitos);
-        int j=0;
-        for(int i=digitoInicial;i<digitoInicial+numeroDigitos;i++){
+        byte[] digitosGenerados = PiDigits.getDigits(digitoInicial,numeroDigitos);
+        for(int i=digitoInicial,j=0;i<digitoInicial+numeroDigitos;i++,j++){
             digitosGlobales[i] = digitosGenerados[j];
-            j++;
         }
-
 
 
     }

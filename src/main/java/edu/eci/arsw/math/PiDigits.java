@@ -22,11 +22,15 @@ public class PiDigits{
         int i = 0;
         while(newIndice+intervalo<=count){
             threads[i] = new PiDigitsFactory(newIndice,intervalo,digits);
+            threads[i].start();
             i++;
             newIndice+=intervalo;
         }
-        for(PiDigitsFactory hilo:threads){
 
+        try{
+            for(PiDigitsFactory hilo:threads) hilo.join();
+        }catch (InterruptedException e){
+            System.out.println(e.getMessage());
         }
         return digits;
 
